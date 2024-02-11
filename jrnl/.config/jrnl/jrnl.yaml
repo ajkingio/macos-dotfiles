@@ -1,0 +1,30 @@
+colors:
+  body: none
+  date: none
+  tags: none
+  title: none
+default_hour: 9
+default_minute: 0
+display_format: markdown
+editor: nvim
+encrypt: false
+highlight: true
+indent_character: '|'
+journals:
+  cf:
+    encrypt: false
+    journal: ~/workspace/ajkingio/notes/Logbooks/cf.md
+  hl:
+    encrypt: false
+    journal: ~/workspace/ajkingio/notes/Logbooks/hl.md
+  pr:
+    encrypt: false
+    journal: ~/workspace/ajkingio/notes/Logbooks/pr.md
+  wr:
+    encrypt: false
+    journal: ~/workspace/ajkingio/notes/Logbooks/wr.md
+linewrap: auto
+tagsymbols: '#@'
+template: false
+timeformat: '%F %r'
+version: v4.1
