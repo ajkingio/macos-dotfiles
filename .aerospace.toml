@@ -41,6 +41,7 @@ default-root-container-orientation = 'auto'
 #                 In this example, 24 is a default value when there is no match.
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide.html#assign-workspaces-to-monitors
+[gaps]
 gaps.inner.horizontal = 0
 gaps.inner.vertical =   0
 gaps.outer.left =       0
