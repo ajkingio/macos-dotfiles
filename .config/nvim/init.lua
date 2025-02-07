@@ -9,6 +9,7 @@ require("plugins.obsidian")
 require("plugins.magma")
 require("plugins.devicons")
 require("plugins.colorscheme")
+require("plugins.avante")
 --[[
 local harpoon = require("harpoon")
 
