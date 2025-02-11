@@ -1,6 +1,6 @@
 # Aliases
 alias ll="ls -alF"
-
+alias onbo="nvim /Users/ajking/Library/CloudStorage/GoogleDrive-ajking@splunk.com/My\ Drive/Notes/onboarding.md"
 # Set PATH
 export PATH=".local/bin:$PATH"
 
