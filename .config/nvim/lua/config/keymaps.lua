@@ -69,3 +69,25 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find f
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+
+-- Copilot keymaps
+-- Keybindings for Copilot with copilot.lua
+local copilot = require("copilot.suggestion")
+
+vim.keymap.set("i", "<C-j>", function()
+  copilot.accept()
+end, { desc = "Accept Copilot suggestion" })
+vim.keymap.set("i", "<C-k>", function()
+  copilot.prev()
+end, { desc = "Previous Copilot suggestion" })
+vim.keymap.set("i", "<C-l>", function()
+  copilot.next()
+end, { desc = "Next Copilot suggestion" })
+vim.keymap.set("i", "<C-\\>", function()
+  copilot.dismiss()
+end, { desc = "Dismiss Copilot suggestion" })
+
+-- Optional: Keybinding to toggle Copilot panel
+vim.keymap.set("n", "<leader>cp", function()
+  copilot.toggle_auto_trigger()
+end, { desc = "Toggle Copilot Auto Trigger" })
