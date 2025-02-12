@@ -1,0 +1,58 @@
+- hosts: localhost
+  gather_facts: true # Enable fact gathering to detect the OS
+  tasks:
+    - name: Check if the OS is macOS
+      when: ansible_system == "Darwin"
+      block:
+        - name: Install apps for macOS
+          homebrew:
+            name: "{{ item }}"
+            state: present
+          loop:
+            - git
+            - stow
+            - neovim
+            - node
+            - zsh-autosuggestions
+            - tldr
+            - tmux
+            - fzf
+            - pipx
+            - python
+
+        - name: Install apps for macOS cask
+          community.general.hombrew_cask:
+            name: "{{ item }}"
+            state: present
+          with_items:
+            - aerospace
+
+        - name: Clone dotfiles repository (macOS)
+          git:
+            repo: "https://github.com/ajkingio/macos-dotfiles.git"
+            dest: "~/dotfiles"
+
+        - name: Deploy dotfiles using Stow (macOS)
+          shell: |
+            cd ~/dotfiles && stow .
+
+    - name: Check if the OS is Linux
+      when: ansible_system == "Linux"
+      block:
+        - name: Install apps for Linux
+          apt:
+            name: "{{ item }}"
+            state: present
+          loop:
+            - git
+            - stow
+            - zsh
+
+        - name: Clone dotfiles repository (Linux)
+          git:
+            repo: "https://github.com/yourusername/dotfiles.git"
+            dest: "~/dotfiles"
+
+        - name: Deploy dotfiles using Stow (Linux)
+          shell: |
+            cd ~/dotfiles && stow --target=$HOME linux
