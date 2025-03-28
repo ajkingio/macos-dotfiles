@@ -14,3 +14,5 @@ This will be ignored by stow and needs to be manually configured. Using the step
 1. Create a folder with the name `chrome` in your Firefox profile directory and copy the `userChrome.css` into it. To find your profile directory, go to about:support or about:profiles.
 2. Go to about:config and set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
 3. Restart Firefox.
+
+Pulled configs from https://github.com/craftzdog/dotfiles-public/tree/master as a starting place.
