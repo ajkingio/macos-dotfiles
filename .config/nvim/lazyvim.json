@@ -1,13 +1,11 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.ai.copilot",
-    "lazyvim.plugins.extras.formatting.prettier",
-    "lazyvim.plugins.extras.ui.edgy",
-    "lazyvim.plugins.extras.vscode"
+
   ],
-  "install_version": 7,
+  "install_version": 8,
   "news": {
-    "NEWS.md": "10960"
+    "NEWS.md": "10960",
+    "doc/news.txt": "24450"
   },
   "version": 8
 }

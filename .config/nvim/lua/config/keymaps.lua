@@ -1,93 +1,76 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+local discipline = require("craftzdog.discipline")
 
--- Harpoon 2
-local harpoon = require("harpoon")
+discipline.cowboy()
 
--- REQUIRED
-harpoon:setup()
--- REQUIRED
+local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "<leader>a", function()
-  harpoon:list():add()
+-- Do things without affecting the registers
+keymap.set("n", "x", '"_x')
+keymap.set("n", "<Leader>p", '"0p')
+keymap.set("n", "<Leader>P", '"0P')
+keymap.set("v", "<Leader>p", '"0p')
+keymap.set("n", "<Leader>c", '"_c')
+keymap.set("n", "<Leader>C", '"_C')
+keymap.set("v", "<Leader>c", '"_c')
+keymap.set("v", "<Leader>C", '"_C')
+keymap.set("n", "<Leader>d", '"_d')
+keymap.set("n", "<Leader>D", '"_D')
+keymap.set("v", "<Leader>d", '"_d')
+keymap.set("v", "<Leader>D", '"_D')
+
+-- Increment/decrement
+keymap.set("n", "+", "<C-a>")
+keymap.set("n", "-", "<C-x>")
+
+-- Delete a word backwards
+keymap.set("n", "dw", 'vb"_d')
+
+-- Select all
+keymap.set("n", "<C-a>", "gg<S-v>G")
+
+-- Save with root permission (not working for now)
+--vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
+
+-- Disable continuations
+keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
+keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
+
+-- Jumplist
+keymap.set("n", "<C-m>", "<C-i>", opts)
+
+-- New tab
+keymap.set("n", "te", ":tabedit")
+keymap.set("n", "<tab>", ":tabnext<Return>", opts)
+keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+-- Split window
+keymap.set("n", "ss", ":split<Return>", opts)
+keymap.set("n", "sv", ":vsplit<Return>", opts)
+-- Move window
+keymap.set("n", "sh", "<C-w>h")
+keymap.set("n", "sk", "<C-w>k")
+keymap.set("n", "sj", "<C-w>j")
+keymap.set("n", "sl", "<C-w>l")
+
+-- Resize window
+keymap.set("n", "<C-w><left>", "<C-w><")
+keymap.set("n", "<C-w><right>", "<C-w>>")
+keymap.set("n", "<C-w><up>", "<C-w>+")
+keymap.set("n", "<C-w><down>", "<C-w>-")
+
+-- Diagnostics
+keymap.set("n", "<C-j>", function()
+	vim.diagnostic.goto_next()
+end, opts)
+
+keymap.set("n", "<leader>r", function()
+	require("craftzdog.hsl").replaceHexWithHSL()
 end)
-vim.keymap.set("n", "<C-e>", function()
-  harpoon.ui:toggle_quick_menu(harpoon:list())
-end)
-vim.keymap.set("n", "<C>h", function()
-  harpoon:list():select(1)
-end)
-vim.keymap.set("n", "<C-j>", function()
-  harpoon:list():select(2)
-end)
-vim.keymap.set("n", "<C-k>", function()
-  harpoon:list():select(3)
-end)
-vim.keymap.set("n", "<C-l>", function()
-  harpoon:list():select(4)
+
+keymap.set("n", "<leader>i", function()
+	require("craftzdog.lsp").toggleInlayHints()
 end)
 
--- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set("n", "<C-S-P>", function()
-  harpoon:list():prev()
-end)
-vim.keymap.set("n", "<C-S-N>", function()
-  harpoon:list():next()
-end)
-
-local harpoon = require("harpoon")
-harpoon:setup({})
-
--- basic telescope configuration
-local conf = require("telescope.config").values
-local function toggle_telescope(harpoon_files)
-  local file_paths = {}
-  for _, item in ipairs(harpoon_files.items) do
-    table.insert(file_paths, item.value)
-  end
-
-  require("telescope.pickers")
-    .new({}, {
-      prompt_title = "Harpoon",
-      finder = require("telescope.finders").new_table({
-        results = file_paths,
-      }),
-      previewer = conf.file_previewer({}),
-      sorter = conf.generic_sorter({}),
-    })
-    :find()
-end
-
-vim.keymap.set("n", "<C-e>", function()
-  toggle_telescope(harpoon:list())
-end, { desc = "Open harpoon window" })
-
--- Telescope keymaps
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
-
--- Copilot keymaps
--- Keybindings for Copilot with copilot.lua
-local copilot = require("copilot.suggestion")
-
-vim.keymap.set("i", "<C-j>", function()
-  copilot.accept()
-end, { desc = "Accept Copilot suggestion" })
-vim.keymap.set("i", "<C-k>", function()
-  copilot.prev()
-end, { desc = "Previous Copilot suggestion" })
-vim.keymap.set("i", "<C-l>", function()
-  copilot.next()
-end, { desc = "Next Copilot suggestion" })
-vim.keymap.set("i", "<C-\\>", function()
-  copilot.dismiss()
-end, { desc = "Dismiss Copilot suggestion" })
-
--- Optional: Keybinding to toggle Copilot panel
-vim.keymap.set("n", "<leader>cp", function()
-  copilot.toggle_auto_trigger()
-end, { desc = "Toggle Copilot Auto Trigger" })
+vim.api.nvim_create_user_command("ToggleAutoformat", function()
+	require("craftzdog.lsp").toggleAutoformat()
+end, {})

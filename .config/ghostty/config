@@ -1,0 +1,19 @@
+# Config
+# Set Theme
+theme = "Solarized Dark - Patched"
+
+background-opacity = 0.9
+background-blur-radius = 20
+background = #031219
+
+font-family = "PlemolJP Console NF"
+
+cursor-style = block
+cursor-style-blink = true
+
+keybind = global:alt+grave_accent=toggle_quick_terminal
+quick-terminal-position = center
+
+macos-option-as-alt = left
+keybind = alt+left=unbind
+keybind = alt+right=unbind

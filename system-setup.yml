@@ -26,6 +26,7 @@
             state: present
           with_items:
             - aerospace
+            - 1password-cli
 
         - name: Clone dotfiles repository (macOS)
           git:

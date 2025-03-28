@@ -13,7 +13,6 @@ return {
   dependencies = {
     -- Required.
     "nvim-lua/plenary.nvim",
-    "hrsh7th/nvim-cmp",
     "godlygeek/tabular",
     "preservim/vim-markdown",
     "nvim-treesitter/nvim-treesitter",
@@ -23,11 +22,15 @@ return {
   opts = {
     workspaces = {
       {
-        name = "notes",
-        path = "~/workspace/ajkingio/notes/",
+        name = "brain",
+        path = "~/workspace/brain/",
       },
     },
-
+    daily_notes = {
+      folder = "Flows/Daily Notes",
+      date_format = "%Y-%m-%d",
+      template = "_meta/Templates/+ Daily Note.md",
+    },
     -- see below for full list of options 👇
   },
 }

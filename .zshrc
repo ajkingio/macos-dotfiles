@@ -1,8 +1,15 @@
 # Aliases
 alias ll="ls -alF"
-alias onbo="nvim /Users/ajking/Library/CloudStorage/GoogleDrive-ajking@splunk.com/My\ Drive/Notes/onboarding.md"
+alias brain="cd /Users/ajking/workspace/brain/ && nvim ."
+
 # Set PATH
-export PATH=".local/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:/Users/ajking/.local/bin:.local/bin:$PATH"
+
+# Set API KEYS
+#export ANTHROPIC_API_KEY=$(op item get xh4ch4ofqj54fiuak7rwmrfmje --reveal --fields label=credential)
+#if [[ -f ~/.zsh_secrets ]]; then
+#   eval $(op inject --in-file ~/.zsh_secrets)
+#fi
 
 # Source Files
 source ~/.zsh_secrets
