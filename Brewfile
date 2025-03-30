@@ -1,4 +1,3 @@
-tap "homebrew/services"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
 tap "jorgerojas26/lazysql"
