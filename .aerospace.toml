@@ -54,6 +54,9 @@ default-root-container-orientation = 'auto'
 # there is no way to observe the indent
 #indent-for-nested-containers-with-the-same-orientation = 30
 
+# Callbacks
+on-focus-changed = ['move-mouse window-lazy-center']
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide.html#binding-modes
 # 'main' binding mode must be always presented

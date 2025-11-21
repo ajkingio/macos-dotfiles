@@ -1,6 +1,6 @@
 # Config
 # Set Theme
-theme = "Solarized Dark - Patched"
+theme = "Solarized Dark Patched"
 
 background-opacity = 0.9
 background-blur-radius = 20
@@ -14,6 +14,7 @@ cursor-style-blink = true
 keybind = global:alt+grave_accent=toggle_quick_terminal
 quick-terminal-position = center
 quick-terminal-autohide = false
+quick-terminal-screen = mouse
 
 macos-option-as-alt = left
 keybind = alt+left=unbind
