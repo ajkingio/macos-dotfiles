@@ -12,7 +12,7 @@ cursor-style = block
 cursor-style-blink = true
 
 keybind = global:alt+grave_accent=toggle_quick_terminal
-quick-terminal-position = center
+quick-terminal-position = right
 quick-terminal-autohide = false
 quick-terminal-screen = mouse
 

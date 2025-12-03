@@ -27,7 +27,22 @@ return {
 				path = "/Users/ajking/workspace/brain",
 			},
 		},
-
-		-- see below for full list of options 👇
+		vim.o.conceallevel == 1,
+		daily_notes = {
+			folder = "Flows/Daily Notes",
+			date_format = "%Y-%m-%d",
+			template = "_meta/Templates/+ Daily Note",
+		},
+		completion = {
+			nvim_cmp = true,
+		},
+		mappings = {},
+		new_notes_location = "Inbox",
+		templates = {
+			folder = "_meta/Templates",
+		},
+		ui = {
+			enable = true,
+		},
 	},
 }
