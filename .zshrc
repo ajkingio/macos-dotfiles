@@ -1,6 +1,7 @@
 # Aliases
 alias ll="ls -alF"
 alias brain="cd /Users/ajking/workspace/brain/ && nvim ."
+alias dotfiles="cd /Users/ajking/macos-dotfiles/ && nvim ."
 
 # Set PATH
 export PATH="/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/Users/ajking/.local/bin:.local/bin:$PATH"
