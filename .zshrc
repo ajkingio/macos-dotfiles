@@ -2,6 +2,8 @@
 alias ll="ls -alF"
 alias brain="cd /Users/ajking/workspace/brain/ && nvim ."
 alias dotfiles="cd /Users/ajking/macos-dotfiles/ && nvim ."
+alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
+alias dn='nvim ~/Users/ajking/workspace/brain/Flows/Daily\ Notes/@\ Daily\ Notes\ Hub.md  -c ":ObsidianToday"'
 
 # Set PATH
 export PATH="/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/Users/ajking/.local/bin:.local/bin:$PATH"
@@ -16,3 +18,9 @@ export PATH="/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/Users/ajking/.local/
 source ~/.zsh_secrets
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
