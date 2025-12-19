@@ -3,33 +3,34 @@ return {
 
 	{
 		"nvim-treesitter/nvim-treesitter",
-			opts = {
-				ensure_installed = {
-					"query",
-					"astro",
-					"bash",
-					"cmake",
-					"cpp",
-					"css",
-					"fish",
-					"gitignore",
-					"go",
-					"graphql",
-					"http",
-					"java",
-					"lua",
-					"php",
-					"rust",
-					"scss",
-					"sql",
-					"svelte",
-					"vim",
-					"vimdoc",
-				},
-
-			-- matchup = {
-			-- 	enable = true,
-			-- },
+		opts = {
+			ensure_installed = {
+				"query",
+				"markdown",
+				"markdown_inline",
+				"astro",
+				"bash",
+				"cmake",
+				"cpp",
+				"css",
+				"fish",
+				"gitignore",
+				"go",
+				"graphql",
+				"http",
+				"java",
+				"lua",
+				"php",
+				"rust",
+				"scss",
+				"sql",
+				"svelte",
+				"vim",
+				"vimdoc",
+			},
+			highlight = {
+				enable = true,
+			},
 
 			-- https://github.com/nvim-treesitter/playground#query-linter
 			query_linter = {
@@ -57,15 +58,15 @@ return {
 				},
 			},
 		},
-	config = function(_, opts)
-		local ok, configs = pcall(require, "nvim-treesitter.config")
-		if not ok then
-			configs = require("nvim-treesitter.configs")
-		end
+		config = function(_, opts)
+			local ok, configs = pcall(require, "nvim-treesitter.config")
+			if not ok then
+				configs = require("nvim-treesitter.configs")
+			end
 
-		configs.setup(opts)
+			configs.setup(opts)
 
-		vim.treesitter.language.register("markdown", "mdx")
-	end,
+			vim.treesitter.language.register("markdown", "mdx")
+		end,
 	},
 }
