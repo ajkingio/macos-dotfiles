@@ -25,7 +25,7 @@ return {
 		workspaces = {
 			{
 				name = "personal",
-				path = "/Users/ajking/workspace/brain",
+				path = vim.fn.expand("~") .. "/workspace/brain",
 			},
 		},
 		daily_notes = {
