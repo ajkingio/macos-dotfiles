@@ -29,7 +29,7 @@ return {
 			},
 		},
 		daily_notes = {
-			folder = "Flows/Daily Notes",
+			folder = "Daily",
 			date_format = "%Y-%m-%d",
 			template = "_meta/Templates/+ Daily Note",
 		},
@@ -61,7 +61,7 @@ return {
 			},
 		},
 
-		new_notes_location = "Inbox",
+		new_notes_location = "00-Inbox",
 
 		-- Optional, customize how note IDs are generated given an optional title.
 		---@param title string|?

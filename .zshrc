@@ -25,3 +25,9 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export OLLAMA_API_KEY="ollama-local"
+
+# Zsh Completion System (must come before completions)
+autoload -Uz compinit && compinit
+
+# OpenClaw Completion
+source <(openclaw completion --shell zsh)
