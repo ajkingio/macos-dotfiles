@@ -175,6 +175,9 @@ return {
                 },
             })
             opts.pickers = {
+                find_files = {
+                    hidden = true,
+                },
                 diagnostics = {
                     theme = "ivy",
                     initial_mode = "normal",
