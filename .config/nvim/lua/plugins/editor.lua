@@ -58,6 +58,16 @@ return {
         },
         keys = {
             {
+                "<leader><leader>",
+                function()
+                    require("telescope.builtin").find_files({
+                        hidden = true,
+                        file_ignore_patterns = { "^%.git/" },
+                    })
+                end,
+                desc = "Find files (no .git)",
+            },
+            {
                 "<leader>fP",
                 function()
                     require("telescope.builtin").find_files({
