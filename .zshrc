@@ -42,7 +42,8 @@ fi
 
 # Prompt (Catppuccin Mocha)
 setopt PROMPT_SUBST
-PROMPT='%F{#89b4fa}%n%f@%F{#b4befe}%m%f %F{#a6e3a1}%~%f $(git rev-parse --is-inside-work-tree >/dev/null 2>&1 && echo "%F{#f5c2e7}$(git rev-parse --abbrev-ref HEAD)%f ")%F{#cdd6f4}›%f '
+#PROMPT='%F{#89b4fa}%n%f@%F{#b4befe}%m%f %F{#a6e3a1}%~%f $(git rev-parse --is-inside-work-tree >/dev/null 2>&1 && echo "%F{#f5c2e7}$(git rev-parse --abbrev-ref HEAD)%f ")%F{#cdd6f4}›%f '
+PROMPT='%F{#89b4fa}%n%f@%F{#b4befe}%m%f %F{#a6e3a1}%~%f $(if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then local branch; branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null) && echo "%F{#f5c2e7}${branch}%f "; fi)%F{#cdd6f4}›%f '
 
 # Set API KEYS
 #export ANTHROPIC_API_KEY=$(op item get xh4ch4ofqj54fiuak7rwmrfmje --reveal --fields label=credential)
