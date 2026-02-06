@@ -72,3 +72,7 @@ export OLLAMA_API_KEY="ollama-local"
 
 # OpenClaw Completion
 #source <(openclaw completion --shell zsh)
+
+# ajking.io blog publishing
+alias publish-blog="~/workspace/ajking.io/scripts/publish.sh"
+alias curated-reads="~/workspace/ajking.io/scripts/curated-reads.sh"
