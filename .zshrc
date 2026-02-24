@@ -76,3 +76,6 @@ export OLLAMA_API_KEY="ollama-local"
 # ajking.io blog publishing
 alias publish-blog="~/workspace/ajking.io/scripts/publish.sh"
 alias curated-reads="~/workspace/ajking.io/scripts/curated-reads.sh"
+
+# Tmuxp alias
+alias cc="tmuxp load ~/.config/tmuxp/command_center.yaml"

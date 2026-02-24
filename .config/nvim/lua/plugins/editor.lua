@@ -62,7 +62,8 @@ return {
                 function()
                     require("telescope.builtin").find_files({
                         hidden = true,
-                        file_ignore_patterns = { "^%.git/" },
+                        no_ignore = true,
+                        file_ignore_patterns = { "^%.git/", "node_modules" },
                     })
                 end,
                 desc = "Find files (no .git)",

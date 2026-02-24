@@ -4,6 +4,28 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 	command = "set nopaste",
 })
 
+-- Auto-reload files changed outside of neovim (e.g. by Claude Code in a split pane)
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+	command = "silent! checktime",
+})
+
+-- Refresh Snacks explorer when focus returns (picks up files created by external tools)
+vim.api.nvim_create_autocmd("FocusGained", {
+	callback = function()
+		pcall(function()
+			local pickers = Snacks.picker.get({ source = "explorer", tab = false })
+			if #pickers == 0 then
+				return
+			end
+			local Tree = require("snacks.explorer.tree")
+			for _, picker in ipairs(pickers) do
+				Tree:refresh(picker:cwd())
+			end
+			require("snacks.explorer.watch").refresh()
+		end)
+	end,
+})
+
 -- Disable the concealing in some file formats
 -- The default conceallevel is 3 in LazyVim
 vim.api.nvim_create_autocmd("FileType", {
