@@ -81,3 +81,17 @@ alias curated-reads="~/workspace/ajking.io/scripts/curated-reads.sh"
 cc() {
   tmuxp load -s "$(basename "$PWD")" ~/.config/tmuxp/command_center.yaml
 }
+
+# Tmux fzf
+fzft() {
+  local session
+  session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf)
+
+  if [[ -n "$session" ]]; then
+    if [[ -n "$TMUX" ]]; then
+      tmux switch-client -t "$session"
+    else
+      tmux attach -t "$session"
+    fi
+  fi
+}

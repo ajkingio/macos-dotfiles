@@ -3,7 +3,6 @@ windows:
   - window_name: code
     layout: "51b0,315x75,0,0{90x75,0,0,63,224x75,91,0[224x60,91,0,64,224x14,91,61,65]}"
     options:
-      automatic-rename: on
       main-pane-width: 1%
     panes:
       - shell_command: claude
